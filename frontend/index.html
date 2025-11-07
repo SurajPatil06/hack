@@ -11,16 +11,19 @@
   <header class="sp-nav">
     <div class="container wrap">
       <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
-      <ul class="sp-links">
-        <li><a href="#home" data-target="home">Home</a></li>
-        <li><a href="#about" data-target="about">About</a></li>
-        <li><a href="#services" data-target="services">Services</a></li>
-        <li><a href="#projects" data-target="projects">Projects</a></li>
-        <li><a href="#portfolio" data-target="portfolio">Portfolio</a></li>
-        <li><a href="#blog" data-target="blog">Blog</a></li>
-        <li><a href="#contact" data-target="contact">Contact</a></li>
-        <li><a href="admin.html" class="external">Admin</a></li>
-      </ul>
+      <div class="sp-right">
+        <ul class="sp-links">
+          <li><a href="#home" data-target="home">Home</a></li>
+          <li><a href="#about" data-target="about">About</a></li>
+          <li><a href="#services" data-target="services">Services</a></li>
+          <li><a href="#projects" data-target="projects">Projects</a></li>
+          <li><a href="#portfolio" data-target="portfolio">Portfolio</a></li>
+          <li><a href="#blog" data-target="blog">Blog</a></li>
+          <li><a href="#contact" data-target="contact">Contact</a></li>
+          <li><a href="admin.html" class="external">Admin</a></li>
+        </ul>
+        <button id="theme-toggle" class="button secondary small" aria-label="Toggle theme"><span id="theme-icon">🌙</span></button>
+      </div>
     </div>
   </header>
 
@@ -28,7 +31,7 @@
   <main id="page" class="page">
 
   <!-- Intro HUD + Brand (Home) -->
-  <section id="home" class="section intro-hud" data-section="home">
+  <section id="intro" class="section intro-hud intro-landing" data-section="intro">
     <div class="container intro-wrap">
       <div class="hud" aria-hidden="true">
         <svg id="hud-svg" viewBox="0 0 400 400" width="340" height="340">
@@ -75,6 +78,40 @@
     </div>
   </section>
 
+  <section id="home" class="section" data-section="home">
+    <header class="hero">
+      <div class="container">
+        <h1>Mastersolis Infotech</h1>
+        <p id="tagline">We provide reliable web, mobile, and cloud services tailored to your business.</p>
+        <div class="cta">
+          <a class="button secondary" href="#services" data-target="services">Explore Services</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Service highlights -->
+    <div class="container home-highlights">
+      <h2>What we do</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>AI Solutions</h3><p>Applied generative AI for products and operations.</p></div>
+        <div class="card"><h3>Cloud & DevOps</h3><p>Reliable platforms with cost efficiency.</p></div>
+        <div class="card"><h3>Web & Mobile</h3><p>User-centered digital experiences.</p></div>
+      </div>
+    </div>
+
+    <!-- Testimonials carousel -->
+    <div class="container">
+      <h2 style="margin-top:20px">Testimonials</h2>
+      <div class="carousel" id="testimonials">
+        <div class="carousel-track">
+          <div class="card carousel-item"><p>Mastersolis delivered our AI MVP in 6 weeks.</p><p class="muted">— Product Lead, Retail</p></div>
+          <div class="card carousel-item"><p>Great communication and reliable delivery.</p><p class="muted">— CTO, SaaS</p></div>
+          <div class="card carousel-item"><p>Cloud costs reduced by 35% post migration.</p><p class="muted">— VP Eng, Fintech</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- About (with HUD accent) -->
   <section id="about" class="section section-dark" data-section="about">
@@ -86,6 +123,48 @@
           <div class="card"><h3>Vision</h3><p>Make advanced AI accessible and dependable for every team.</p></div>
           <div class="card"><h3>Values</h3><p>Impact, Integrity, Iteration.</p></div>
         </div>
+        <section class="card" style="margin-top:16px">
+          <h2>Team</h2>
+          <p id="team-intro" class="muted" style="margin:6px 0">We are a small, focused team building reliable software for the web, mobile, and cloud.</p>
+          <div id="team-list" class="grid cols-4" style="margin-top:8px">
+            <div class="team-card card">
+              <img class="avatar" src="https://randomuser.me/api/portraits/men/31.jpg" alt="Arjun Mehta" />
+              <div>
+                <h3>Arjun Mehta</h3>
+                <p class="muted">Founder & CEO</p>
+              </div>
+            </div>
+            <div class="team-card card">
+              <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Neha Sharma" />
+              <div>
+                <h3>Neha Sharma</h3>
+                <p class="muted">Head of AI & Machine Learning</p>
+              </div>
+            </div>
+            <div class="team-card card">
+              <img class="avatar" src="https://randomuser.me/api/portraits/men/65.jpg" alt="Rohan Patel" />
+              <div>
+                <h3>Rohan Patel</h3>
+                <p class="muted">Lead Web Developer</p>
+              </div>
+            </div>
+            <div class="team-card card">
+              <img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Nair" />
+              <div>
+                <h3>Priya Nair</h3>
+                <p class="muted">UI/UX Designer</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card" style="margin-top:16px">
+          <h2>Company Milestones</h2>
+          <ul>
+            <li>2023 — Mastersolis founded</li>
+            <li>2024 — First production AI deployment</li>
+            <li>2025 — Expanded to cloud and data practices</li>
+          </ul>
+        </section>
       </div>
       <div class="about-hud">
         <svg id="about-ring" viewBox="0 0 300 300" width="260" height="260" aria-hidden="true">

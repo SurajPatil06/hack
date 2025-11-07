@@ -40,7 +40,6 @@ function toast(msg){
 // Animations (anime.js)
 function initAnimationsCommon(){
   if(!window.anime) return;
-  const rootEl = document.getElementById('page') || null;
   // Reveal cards on scroll within sections
   const io = new IntersectionObserver((entries)=>{
     entries.forEach((e)=>{
@@ -49,7 +48,7 @@ function initAnimationsCommon(){
         io.unobserve(e.target);
       }
     })
-  }, { threshold: 0.12, root: rootEl });
+  }, { threshold: 0.12 });
   document.querySelectorAll('.card').forEach(el=>{ el.style.opacity=0; io.observe(el); });
 }
 
@@ -119,48 +118,47 @@ function initSinglePageTransitions(){
   };
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting) onEnter(e.target.id); });
-  }, { threshold: 0.6, root: document.getElementById('page')||null });
+  }, { threshold: 0.6 });
   sections.forEach(s=> io.observe(s));
 }
 
 async function initHome(){
-  const btn = document.getElementById('btn-generate-tagline');
-  if(!btn) return;
-  btn.addEventListener('click', async () => {
-    btn.disabled = true; btn.textContent = 'Generating…';
-    try{
-      const { tagline } = await api('/ai/tagline', { method:'POST', body: { company:"Mastersolis Infotech", tone:'innovative, trustworthy' } });
-      document.getElementById('tagline').textContent = tagline;
-    }catch(e){ toast('Using fallback tagline (backend not running)');
-      document.getElementById('tagline').textContent = 'Building modern, AI-driven solutions for ambitious teams.';
-    } finally { btn.disabled=false; btn.textContent='Generate AI Tagline'; }
+  // Link buttons inside sections to scroll smoothly to target
+  document.querySelectorAll('a[data-target]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const id = a.dataset.target; const el = document.getElementById(id);
+      if(el) animateScrollTo(el.offsetTop);
+    });
   });
 
-  // Hero intro animation
+  // Hero intro animation for Home only
   if(window.anime){
     anime.timeline({ easing:'easeOutExpo' })
-      .add({ targets: '.hero h1', translateY:[20,0], opacity:[0,1], duration:650 })
-      .add({ targets: '.hero p', translateY:[14,0], opacity:[0,1], duration:500 }, '-=300')
-      .add({ targets: '.cta .button', opacity:[0,1], scale:[0.96,1], delay: anime.stagger(80), duration:350 }, '-=300');
+      .add({ targets: '#home .hero h1', translateY:[20,0], opacity:[0,1], duration:650 })
+      .add({ targets: '#home .hero p', translateY:[14,0], opacity:[0,1], duration:500 }, '-=300')
+      .add({ targets: '#home .cta .button', opacity:[0,1], scale:[0.96,1], delay: anime.stagger(80), duration:350 }, '-=300');
+  }
+
+  // Testimonials auto-advance
+  const track = document.querySelector('#testimonials .carousel-track');
+  if(track && window.anime){
+    const step = ()=>{
+      const first = track.children[0];
+      const w = first.getBoundingClientRect().width + 16; // card width + gap
+      anime({ targets: track, translateX: [-0, -w], duration: 1200, easing:'easeInOutCubic', complete:()=>{
+        track.appendChild(first); track.style.transform = 'translateX(0px)';
+        setTimeout(step, 2000);
+      }});
+    };
+    setTimeout(step, 2000);
   }
 }
 
 async function initAbout(){
-  const btn = document.getElementById('btn-team-intro');
-  if(!btn) return;
-  btn.addEventListener('click', async () => {
-    btn.disabled=true; btn.textContent='Generating…';
-    try{
-      const { text } = await api('/ai/generate', { method:'POST', body: { type:'team-intro', team:[
-        { name:'Anurag Singh', role:'AI Engineer' },
-        { name:'Priya', role:'Frontend Dev' },
-        { name:'Rohit', role:'Cloud Architect' },
-      ]}});
-      document.getElementById('team-intro').textContent = text;
-    }catch(e){ toast('Fallback intro used');
-      document.getElementById('team-intro').textContent = 'Our multidisciplinary team blends AI research, product design, and cloud reliability to ship business outcomes fast.';
-    } finally { btn.disabled=false; btn.textContent='AI: Generate Team Intro'; }
-  });
+  // Static team content already in HTML
+  const intro = document.getElementById('team-intro');
+  if(intro && !intro.dataset.set){ intro.dataset.set='1'; }
 }
 
 async function initServices(){
@@ -405,17 +403,21 @@ async function initAdmin(){
 }
 
 // Router
+function animateScrollTo(y){
+  // Use native smooth scrolling for stability across devices
+  window.scrollTo({ top: y, behavior:'smooth' });
+}
+
 function initSinglePageNav(){
-  const scroller = document.getElementById('page');
   const links = Array.from(document.querySelectorAll('.sp-links a[data-target]'));
-  if(!scroller || !links.length) return;
+  if(!links.length) return;
   links.forEach(a=>{
     a.addEventListener('click',(e)=>{
       e.preventDefault();
       const id = a.dataset.target;
       const el = document.getElementById(id);
       if(!el) return;
-      scroller.scrollTo({ top: el.offsetTop, behavior:'smooth' });
+      animateScrollTo(el.offsetTop);
     });
   });
   const map = Object.fromEntries(links.map(a=>[a.dataset.target,a]));
@@ -426,13 +428,59 @@ function initSinglePageNav(){
         const l = map[e.target.id]; if(l) l.classList.add('active');
       }
     })
-  }, { threshold:0.6, root: scroller });
+  }, { threshold:0.6 });
   document.querySelectorAll('.section').forEach(s=> io.observe(s));
 }
 
+function initTheme(){
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const initial = saved || (prefersLight ? 'light' : 'dark');
+  root.setAttribute('data-theme', initial);
+  const icon = document.getElementById('theme-icon'); if(icon) icon.textContent = initial==='light' ? '🌙' : '☀️';
+  const btn = document.getElementById('theme-toggle');
+  if(btn){ btn.addEventListener('click', ()=>{
+    const curr = root.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', curr);
+    localStorage.setItem('theme', curr);
+    const icon2 = document.getElementById('theme-icon'); if(icon2) icon2.textContent = curr==='light' ? '🌙' : '☀️';
+  }); }
+}
+
+function initLandingIntro(){
+  const intro = document.getElementById('intro');
+  if(!intro) return;
+  const hud = intro.querySelector('.hud');
+  const brand = intro.querySelector('.intro-brand');
+  const clamp = (v,min,max)=>Math.min(max,Math.max(min,v));
+  const onScroll = ()=>{
+    const h = intro.offsetHeight || 1;
+    const t = window.scrollY || document.documentElement.scrollTop || 0;
+    const p = clamp(t/(h*0.9),0,1);
+    if(hud){ hud.style.transform = `scale(${1 + p*0.25})`; hud.style.opacity = `${1 - p*0.1}`; }
+    if(brand){ brand.style.opacity = `${1 - p}`; brand.style.transform = `translateY(${p*20}px)`; }
+    intro.style.opacity = `${1 - p*0.2}`;
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+
+function ensureStartOnIntro(){
+  if(document.body.dataset.page!=='home') return;
+  try{ history.scrollRestoration = 'manual'; }catch(e){}
+  if(location.hash){ try{ history.replaceState(null,'',location.pathname); }catch(e){} }
+  requestAnimationFrame(()=>{ window.scrollTo({ top:0, behavior:'auto' }); });
+}
+
+
 window.addEventListener('DOMContentLoaded', () => {
+  ensureStartOnIntro();
+  initTheme();
   initAnimationsCommon();
   initIntroHUD();
+  initLandingIntro();
   initSinglePageTransitions();
   initSinglePageNav();
   // Initialize modules opportunistically if elements exist
