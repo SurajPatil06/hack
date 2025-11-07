@@ -86,12 +86,6 @@ function initSinglePageTransitions(){
       case 'home':
         // HUD branding reveals handled in initIntroHUD
         break;
-      case 'builder':
-        anime.timeline({ easing:'easeOutExpo' })
-          .add({ targets: '#builder .hero h1', translateY:[20,0], opacity:[0,1], duration:600 })
-          .add({ targets: '#builder .hero p', translateY:[12,0], opacity:[0,1], duration:450 }, '-=300')
-          .add({ targets: '#builder .cta .button', opacity:[0,1], scale:[0.96,1], duration:300, delay: anime.stagger(70) }, '-=250');
-        break;
       case 'about':
         anime({ targets:'#about-ring', rotate:360, duration:12000, easing:'linear', loop:true, transformOrigin:'50% 50%' });
         anime({ targets:'#about .card', opacity:[0,1], translateY:[18,0], delay: anime.stagger(80), duration:500, easing:'easeOutCubic' });
