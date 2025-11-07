@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Careers – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="careers">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Careers</h1>
+
+    <section class="card">
+      <h2>Open Roles</h2>
+      <div id="jobs" class="grid cols-3"></div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Apply now</h2>
+      <p class="muted">Build a resume with our <a href="resume-builder.html">Resume Builder</a> or upload an existing one.</p>
+      <form id="resume-form" class="form">
+        <div>
+          <label for="job-id">Applying for</label>
+          <select id="job-id" name="job_id"></select>
+        </div>
+        <div>
+          <label for="resume">Resume (PDF/DOC/DOCX)</label>
+          <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required />
+        </div>
+        <button class="button" type="submit">Upload & Analyze</button>
+      </form>
+      <div style="margin-top:12px">
+        <p id="score" class="badge">Score: —</p>
+        <p id="feedback" class="muted">Upload a resume to see your AI score.</p>
+      </div>
+
+      <form id="apply-form" class="form" style="margin-top:16px">
+        <h3>Quick Apply (paste resume text)</h3>
+        <div>
+          <label>Name</label>
+          <input name="name" class="input" />
+        </div>
+        <div>
+          <label>Email</label>
+          <input name="email" type="email" class="input" />
+        </div>
+        <div>
+          <label>Phone</label>
+          <input name="phone" class="input" />
+        </div>
+        <div>
+          <label>Resume text</label>
+          <textarea name="resume_text" rows="6"></textarea>
+        </div>
+        <button class="button" type="submit">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

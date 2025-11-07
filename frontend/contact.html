@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="contact">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Contact Us</h1>
+    <form id="contact-form" class="form card">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" class="input" placeholder="Your name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" class="input" placeholder="you@example.com" required />
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+      </div>
+      <button class="button" type="submit">Send Message</button>
+    </form>
+
+    <section class="card" style="margin-top:16px">
+      <h2>AI Auto-Reply</h2>
+      <p id="ai-reply" class="muted">Our AI will draft a response after you submit the form.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

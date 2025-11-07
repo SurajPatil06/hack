@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mastersolis Infotech – AI Connect</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+  <!-- Single-page header -->
+  <header class="sp-nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul class="sp-links">
+        <li><a href="#home" data-target="home">Home</a></li>
+        <li><a href="#builder" data-target="builder">Builder</a></li>
+        <li><a href="#about" data-target="about">About</a></li>
+        <li><a href="#services" data-target="services">Services</a></li>
+        <li><a href="#projects" data-target="projects">Projects</a></li>
+        <li><a href="#portfolio" data-target="portfolio">Portfolio</a></li>
+        <li><a href="#blog" data-target="blog">Blog</a></li>
+        <li><a href="#contact" data-target="contact">Contact</a></li>
+        <li><a href="admin.html" class="external">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Single-page scroller -->
+  <main id="page" class="page">
+
+  <!-- Intro HUD + Brand (Home) -->
+  <section id="home" class="section intro-hud" data-section="home">
+    <div class="container intro-wrap">
+      <div class="hud" aria-hidden="true">
+        <svg id="hud-svg" viewBox="0 0 400 400" width="340" height="340">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00DC82"/>
+              <stop offset="33%" stop-color="#FFE66D"/>
+              <stop offset="66%" stop-color="#FF5C7C"/>
+              <stop offset="100%" stop-color="#22D3EE"/>
+            </linearGradient>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse">
+              <rect x="0" y="2.5" width="6" height="1.5" fill="#ff4d61" opacity="0.8"/>
+            </pattern>
+            <mask id="blobMask">
+              <ellipse cx="200" cy="200" rx="130" ry="80" fill="white"/>
+            </mask>
+          </defs>
+          <g id="rings" transform="translate(200,200)">
+            <g id="ring-outer">
+              <circle r="180" fill="none" stroke="url(#ringGrad)" stroke-width="8" stroke-dasharray="90 30 16 22 70 24 10 26" stroke-linecap="round"/>
+            </g>
+            <g id="ring-ticks">
+              <circle r="168" fill="none" stroke="#ff6b81" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="2 8"/>
+            </g>
+            <g id="ring-inner">
+              <circle r="140" fill="none" stroke="#1f274f" stroke-width="2"/>
+              <circle r="120" fill="none" stroke="#1f274f" stroke-width="2"/>
+            </g>
+          </g>
+
+          <g id="wave" mask="url(#blobMask)">
+            <rect x="40" y="120" width="320" height="160" fill="url(#hatch)"/>
+          </g>
+
+          <path id="hud-spline" d="M 60 300 C 140 260, 120 180, 200 200 S 320 220, 340 140" fill="none" stroke="#ff6b81" stroke-width="6" stroke-linecap="round" stroke-dasharray="0" opacity="0.85"/>
+          <circle id="hud-dot" cx="0" cy="0" r="6" fill="#ff6b81"/>
+
+        </svg>
+      </div>
+      <div class="intro-brand">
+        <h1 class="brand-title">Mastersolis Infotech</h1>
+        <p class="muted">Engineering modern, AI‑driven experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <div class="container">
+      <h1>AI-Powered Company Website Builder</h1>
+      <p id="tagline">Elevate your business with intelligent products and pragmatic engineering.</p>
+      <div class="cta">
+        <button id="btn-generate-tagline" class="button">Generate AI Tagline</button>
+      </div>
+    </div>
+  </header>
+  </section>
+
+  <!-- Website Builder hero (separate section for snap access) -->
+  <section id="builder" class="section section-dark" data-section="builder">
+    <header class="hero">
+      <div class="container">
+        <h1>AI-Powered Company Website Builder</h1>
+        <p id="tagline">Elevate your business with intelligent products and pragmatic engineering.</p>
+        <div class="cta">
+          <button id="btn-generate-tagline" class="button">Generate AI Tagline</button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- About (with HUD accent) -->
+  <section id="about" class="section section-dark" data-section="about">
+    <div class="container about-wrap">
+      <div class="about-copy">
+        <h2>About Us</h2>
+        <div class="grid cols-3">
+          <div class="card"><h3>Mission</h3><p>Deliver AI-first solutions that create measurable business value.</p></div>
+          <div class="card"><h3>Vision</h3><p>Make advanced AI accessible and dependable for every team.</p></div>
+          <div class="card"><h3>Values</h3><p>Impact, Integrity, Iteration.</p></div>
+        </div>
+      </div>
+      <div class="about-hud">
+        <svg id="about-ring" viewBox="0 0 300 300" width="260" height="260" aria-hidden="true">
+          <defs>
+            <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00DC82"/>
+              <stop offset="50%" stop-color="#FF5C7C"/>
+              <stop offset="100%" stop-color="#22D3EE"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(150,150)">
+            <circle r="120" fill="none" stroke="url(#aboutGrad)" stroke-width="8" stroke-dasharray="90 26 16 18" stroke-linecap="round"/>
+            <circle r="106" fill="none" stroke="#1f274f" stroke-width="2"/>
+            <circle r="92" fill="none" stroke="#1f274f" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services (shapes animation) -->
+  <section id="services" class="section section-alt" data-section="services">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="shape-field" aria-hidden="true">
+        <div class="shape c"></div>
+        <div class="shape s"></div>
+        <div class="shape o"></div>
+        <div class="shape s2"></div>
+      </div>
+      <div class="grid cols-3">
+        <div class="card"><h3>AI Solutions</h3><p class="desc">Prototype to production for GenAI, RAG, and ML systems.</p></div>
+        <div class="card"><h3>Web Development</h3><p class="desc">Modern SPAs and performant websites.</p></div>
+        <div class="card"><h3>Cloud & DevOps</h3><p class="desc">Secure, scalable infrastructure with IaC and CI/CD.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section" data-section="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>E-commerce Replatform</h3><p class="summary">Modern storefront with improved conversion.</p></div>
+        <div class="card"><h3>On-device Vision</h3><p class="summary">Real-time detection with local ML.</p></div>
+        <div class="card"><h3>Data Lakehouse</h3><p class="summary">Unified analytics with cost control.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section section-alt" data-section="portfolio">
+    <div class="container">
+      <div class="portfolio-head">
+        <h2>Portfolio</h2>
+        <svg id="portfolio-accent" viewBox="0 0 220 220" width="160" height="160" aria-hidden="true">
+          <g transform="translate(110,110)">
+            <circle r="96" fill="none" stroke="#1f274f" stroke-width="2"/>
+            <circle id="pf-arc" r="96" fill="none" stroke="#ff7aa2" stroke-width="6" stroke-linecap="round" stroke-dasharray="40 400"/>
+          </g>
+        </svg>
+      </div>
+      <div class="portfolio-grid">
+        <div class="case card"><h3>AI Personalization</h3><p>Contextual recommendations raised CTR by 18%.</p></div>
+        <div class="case card"><h3>Edge Vision QA</h3><p>On-device defect detection for manufacturing.</p></div>
+        <div class="case card"><h3>FinOps Optimization</h3><p>Cost guardrails and autoscaling saved 32%.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="section" data-section="blog">
+    <div class="container">
+      <h2>Blog</h2>
+      <div class="grid cols-3 blog-grid">
+        <div class="card blog-card"><h3>Designing AI UX</h3><p>Patterns for explainability and trust.</p></div>
+        <div class="card blog-card"><h3>RAG in Production</h3><p>Retrieval, chunking, and guardrails that work.</p></div>
+        <div class="card blog-card"><h3>DevEx for Speed</h3><p>Ship faster with platform primitives.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section section-dark" data-section="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <form id="contact-form" class="form card" style="max-width:640px;margin:0 auto">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" class="input" placeholder="Your name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" class="input" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+        </div>
+        <button class="button" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <button class="chat-toggle" id="chat-toggle">Chat</button>
+  <div class="chatbot" id="chatbot">
+    <header>
+      <strong>AI Assistant</strong>
+      <button class="button secondary" id="chat-close">Close</button>
+    </header>
+    <div class="body" id="chat-body"></div>
+    <div class="input"><input id="chat-input" class="input" placeholder="Ask about services..." /><button id="chat-send" class="button">Send</button></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">© 2025 Mastersolis Infotech</div>
+  </footer>
+
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

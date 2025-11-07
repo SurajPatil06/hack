@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="services">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Services</h1>
+    <p class="muted">Chat with us if you have questions about any service.</p>
+    <div class="grid cols-3">
+      <div class="card" data-service="AI Solutions">
+        <h3>AI Solutions</h3>
+        <p class="desc">Prototype to production for GenAI, RAG, and ML systems.</p>
+        <button class="button btn-ai-desc">AI: Improve Description</button>
+      </div>
+      <div class="card" data-service="Web Development">
+        <h3>Web Development</h3>
+        <p class="desc">Modern SPAs and performant websites.</p>
+        <button class="button btn-ai-desc">AI: Improve Description</button>
+      </div>
+      <div class="card" data-service="Mobile Apps">
+        <h3>Mobile Apps</h3>
+        <p class="desc">Intuitive Android/iOS apps with native feel.</p>
+        <button class="button btn-ai-desc">AI: Improve Description</button>
+      </div>
+      <div class="card" data-service="Cloud & DevOps">
+        <h3>Cloud & DevOps</h3>
+        <p class="desc">Secure, scalable infrastructure with IaC and CI/CD.</p>
+        <button class="button btn-ai-desc">AI: Improve Description</button>
+      </div>
+      <div class="card" data-service="Data Engineering">
+        <h3>Data Engineering</h3>
+        <p class="desc">Reliable pipelines and analytics-ready data.</p>
+        <button class="button btn-ai-desc">AI: Improve Description</button>
+      </div>
+    </div>
+  </main>
+
+  <button class="chat-toggle" id="chat-toggle">Chat</button>
+  <div class="chatbot" id="chatbot">
+    <header>
+      <strong>AI Assistant</strong>
+      <button class="button secondary" id="chat-close">Close</button>
+    </header>
+    <div class="body" id="chat-body"></div>
+    <div class="input"><input id="chat-input" class="input" placeholder="Ask about services..." /><button id="chat-send" class="button">Send</button></div>
+  </div>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

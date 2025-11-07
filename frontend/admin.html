@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="admin">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Admin Dashboard</h1>
+    <p class="muted">Admin login to manage site content. Analytics dashboard with AI-based summaries.</p>
+
+    <section class="card" id="login-card">
+      <h2>Login</h2>
+      <form id="admin-login" class="form">
+        <div><label>Username</label><input name="username" class="input" value="admin" /></div>
+        <div><label>Password</label><input name="password" type="password" class="input" value="admin123" /></div>
+        <button class="button" type="submit">Login</button>
+      </form>
+    </section>
+
+    <section class="card" id="metrics-card" style="display:none">
+      <h2>Key Metrics</h2>
+      <div id="metrics">Loading…</div>
+    </section>
+
+    <section class="card" id="content-card" style="display:none; margin-top:16px">
+      <h2>Content Management</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Add Job</h3>
+          <form id="job-add" class="form">
+            <input name="title" class="input" placeholder="Title" />
+            <input name="location" class="input" placeholder="Location" />
+            <input name="type" class="input" placeholder="Type" />
+            <input name="skills" class="input" placeholder="Skills (comma separated)" />
+            <textarea name="summary" rows="3" placeholder="Summary"></textarea>
+            <button class="button" type="submit">Add Job</button>
+          </form>
+        </div>
+        <div>
+          <h3>Add Post</h3>
+          <form id="post-add" class="form">
+            <input name="title" class="input" placeholder="Title" />
+            <textarea name="content" rows="4" placeholder="Content"></textarea>
+            <button class="button" type="submit">Add Post</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="apps-card" style="display:none; margin-top:16px">
+      <h2>Applications</h2>
+      <div id="applications" class="grid cols-3"></div>
+    </section>
+
+    <section class="card" id="ai-card" style="display:none; margin-top:16px">
+      <h2>AI Summary</h2>
+      <button id="btn-analytics" class="button">AI: Summarize Analytics</button>
+      <p id="ai-summary" class="muted" style="margin-top:8px">Click to generate a short summary of current analytics.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

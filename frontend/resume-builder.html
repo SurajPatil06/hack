@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Builder – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="resume-builder">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Resume Builder</h1>
+    <p class="muted">Fill the form to generate a clean, ATS-friendly resume. Download or submit to a job.</p>
+    <div class="grid cols-2">
+      <form id="rb-form" class="form card">
+        <div><label>Full name</label><input name="name" class="input" required /></div>
+        <div><label>Email</label><input name="email" type="email" class="input" required /></div>
+        <div><label>Phone</label><input name="phone" class="input" /></div>
+        <div><label>Summary</label><textarea name="summary" rows="3"></textarea></div>
+        <div><label>Skills (comma separated)</label><input name="skills" class="input" /></div>
+        <div><label>Experience</label><textarea name="experience" rows="5" placeholder="Company – Role – Years – Highlights"></textarea></div>
+        <div><label>Education</label><textarea name="education" rows="3"></textarea></div>
+        <div>
+          <label>Submit to Job</label>
+          <select id="rb-job" name="job_id"></select>
+        </div>
+        <div class="cta">
+          <button type="button" id="rb-preview" class="button">Preview</button>
+          <button type="button" id="rb-download" class="button secondary">Download</button>
+          <button type="button" id="rb-submit" class="button">Submit Application</button>
+        </div>
+      </form>
+      <div id="rb-preview-area" class="card">
+        <h2>Preview</h2>
+        <div id="rb-doc" style="background:#0a1130;padding:16px;border-radius:8px">
+          <p class="muted">Your resume preview will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

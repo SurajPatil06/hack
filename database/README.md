@@ -1,0 +1,1 @@
+This directory is reserved for database assets (e.g., SQLite files, migrations). For this demo, the API uses in-memory data. Create `mastersolis.db` here if you add a real database.

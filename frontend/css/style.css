@@ -1,0 +1,109 @@
+/* Mastersolis AI Connect - Frontend Styles */
+:root{
+  --bg:#070a1a; --card:#101532; --text:#eef1ff; --muted:#aab2d9; --brand:#7c5cff; --brand-2:#2dd4bf; --accent:#ff7aa2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.muted{color:var(--muted)}
+
+/* Single-page layout */
+body[data-page="home"]{overflow:hidden}
+.page{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.section{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+.section h2{font-size:34px;margin:0 0 12px}
+.section-dark{background:linear-gradient(180deg,#0a1130,#0a1130)}
+.section-alt{background:linear-gradient(180deg,#0a1130,#0b1438)}
+
+/* Header */
+.sp-nav{position:fixed;top:10px;left:50%;transform:translateX(-50%);width:min(1100px,92vw);z-index:50;background:rgba(11,16,32,.6);backdrop-filter:blur(10px);border:1px solid #1c2347;border-radius:12px;padding:8px 12px}
+.sp-nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.sp-links{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+.sp-links a{padding:6px 10px;border-radius:8px;color:var(--muted)}
+.sp-links a:hover{background:#171e3f;color:var(--text)}
+.sp-links a.active{background:linear-gradient(45deg,var(--brand),var(--brand-2));color:#0b1020}
+
+/* Hide legacy nav if present */
+.nav{display:none}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand .logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(45deg,var(--brand),var(--brand-2))}
+
+/* Intro HUD */
+.intro-hud{padding:40px 0 10px;border-bottom:1px solid #1c2347;background:radial-gradient(900px 300px at 50% -60%, #21306a22, transparent)}
+.intro-wrap{display:flex;align-items:center;gap:28px;justify-content:center;flex-wrap:wrap}
+.hud{width:340px;height:340px;display:grid;place-items:center;filter:drop-shadow(0 16px 40px #0008)}
+.brand-title{font-size:42px;line-height:1.1;margin:0;background:linear-gradient(90deg,#fff,#c7d2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro-brand p{margin:6px 0 0}
+.about-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+.about-hud{display:grid;place-items:center}
+
+/* Services shapes */
+.shape-field{position:relative;height:220px;margin:10px 0 18px}
+.shape{position:absolute;width:26px;height:26px;border-radius:6px;background:#ff8933}
+.shape.c{border-radius:999px;background:#ffcc33;width:22px;height:22px}
+.shape.o{background:transparent;border:3px solid #ffcc33;border-radius:999px;width:34px;height:34px}
+.shape.s2{width:18px;height:18px;background:#ff8933;border-radius:4px}
+
+/* Hero */
+.hero{padding:80px 0;background:
+  radial-gradient(1200px 400px at 50% -80%, #21306a33, transparent),
+  linear-gradient(180deg, #0b153f00, #0b153f44);
+  position:relative; overflow:hidden;}
+.hero::after{content:"";position:absolute;inset:-20% -10% auto -10%;height:220px;background:conic-gradient(from 180deg at 50% 50%, #7c5cff33, #2dd4bf22, #ff7aa222, #7c5cff33);filter:blur(60px);}
+.hero h1{font-size:48px;line-height:1.1;margin:0 0 12px;background:linear-gradient(90deg,#fff,#c7d2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);margin:0 0 16px;font-size:18px}
+.hero h1{font-size:40px;margin:0 0 12px}
+.hero p{color:var(--muted);margin:0 0 16px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.button{background:linear-gradient(45deg,var(--brand),var(--brand-2));border:none;color:#0b1020;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px #0005;transition:transform .08s ease}
+.button:hover{transform:translateY(-1px)}
+.button.secondary{background:#1b234d;color:var(--text);border:1px solid #293277}
+.button:disabled{opacity:.6;cursor:not-allowed}
+
+/* Grids, cards */
+.grid{display:grid;gap:16px}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,#0f1640,#0c1233);border:1px solid #1c2347;border-radius:14px;padding:16px;box-shadow:0 10px 30px #0006}
+.card h3{margin:0 0 8px}
+.card p{margin:0 0 8px;color:var(--muted)}
+.badge{display:inline-block;padding:4px 8px;border:1px solid #2a356b;background:#161d44;border-radius:999px;color:#b9c3ff;font-size:12px}
+
+/* Portfolio */
+.portfolio-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.portfolio-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.portfolio-grid{grid-template-columns:1fr}}
+
+/* Blog */
+.blog-grid .blog-card h3{color:#fff}
+
+/* Forms */
+.form{display:grid;gap:12px}
+.input, textarea, select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #27306a;background:#0f1634;color:var(--text)}
+label{font-size:14px;color:#c8cff7}
+
+/* Footer */
+.footer{border-top:1px solid #1c2347;color:#8e97c9;padding:26px 0;margin-top:40px}
+
+/* Toast */
+.toast{position:fixed;right:16px;bottom:16px;background:#10173a;border:1px solid #263077;color:#dfe5ff;padding:10px 12px;border-radius:8px;display:none}
+.toast.show{display:block}
+
+/* Chatbot */
+.chatbot{position:fixed;right:20px;bottom:20px;width:320px;max-width:90vw;background:#0f1636;border:1px solid #243079;border-radius:12px;box-shadow:0 14px 40px #000a;display:none}
+.chatbot header{padding:10px 12px;border-bottom:1px solid #243079;display:flex;justify-content:space-between;align-items:center}
+.chatbot .body{max-height:300px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.chatbot .msg{padding:8px 10px;border-radius:10px;max-width:85%}
+.chatbot .msg.user{background:#1b2355;align-self:flex-end}
+.chatbot .msg.bot{background:#121a44;align-self:flex-start}
+.chatbot .input{display:flex;gap:6px;padding:10px;border-top:1px solid #243079}
+.chatbot .input input{flex:1}
+.chat-toggle{position:fixed;right:20px;bottom:20px;background:linear-gradient(45deg,var(--brand),var(--brand-2));color:#0b1020;border:none;border-radius:999px;padding:10px 14px;box-shadow:0 10px 30px #000a}
+
+/* Filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.filters .button{padding:6px 10px}

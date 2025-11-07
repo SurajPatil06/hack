@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog – Mastersolis Infotech</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="blog">
+  <nav class="nav">
+    <div class="container wrap">
+      <div class="brand"><div class="logo"></div> Mastersolis Infotech</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:28px 0 0">
+    <h1>Blog & News</h1>
+    <div id="posts" class="grid cols-3"></div>
+  </main>
+
+  <button class="chat-toggle" id="chat-toggle">Chat</button>
+  <div class="chatbot" id="chatbot">
+    <header>
+      <strong>AI Assistant</strong>
+      <button class="button secondary" id="chat-close">Close</button>
+    </header>
+    <div class="body" id="chat-body"></div>
+    <div class="input"><input id="chat-input" class="input" placeholder="Ask about posts..." /><button id="chat-send" class="button">Send</button></div>
+  </div>
+
+  <footer class="footer"><div class="container">© 2025 Mastersolis Infotech</div></footer>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
